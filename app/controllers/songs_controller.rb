@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /songs
   # GET /songs.json
   def index
@@ -22,6 +22,8 @@ class SongsController < ApplicationController
 
   # GET /songs/1/edit
   def edit
+    @song = Song.find(params[:id])
+    authorize @song
   end
 
   # POST /songs
@@ -86,7 +88,7 @@ class SongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.require(:song).permit(:name, :image, :price, :user_id, :genre, :genre_id)
+      params.require(:song).permit(:name, :image, :price, :user_id, :genre_id)
     end
 
     def genre_params

@@ -6,6 +6,21 @@ before_action :authenticate_user!
 def generate_data
   #authorize :generator, :generate_data?
   Faker::Config.locale = 'en-US'
+
+  Song.all.each do |song|
+    song.destroy
+  end
+
+  User.all.each do |user|
+    if user.admin != true
+      user.destroy
+    end
+  end
+  Genre.all.each do |genre|
+    genre.destroy
+  end
+
+
   5.times do
     new_user = User.create!(admin: false,
                   email: Faker::Internet.free_email,
@@ -20,6 +35,8 @@ def generate_data
                   genre_id: new_genre.id,
                   genre: new_genre
                   )
+    new_user.songs << new_song
+
                 #new_song.genre << new_genre
   end
   redirect_to songs_path
