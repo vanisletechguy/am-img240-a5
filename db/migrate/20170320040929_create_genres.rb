@@ -3,6 +3,7 @@ class CreateGenres < ActiveRecord::Migration[5.0]
     create_table :genres do |t|
       t.string :name
       t.string :picture
+      
 
       t.timestamps
     end

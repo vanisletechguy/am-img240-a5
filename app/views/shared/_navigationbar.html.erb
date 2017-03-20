@@ -16,16 +16,16 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li> <%= link_to "Welcome", songs_path %> </li>
-        <li> <%= link_to "Phones", songs_path %> </li>
-        <li> <%= link_to "Generate", songs_path %> </li>
+        <li> <%= link_to "Songs", songs_path %> </li>
+        <li> <%= link_to "Genres", genres_path %> </li>
         <li> <%= link_to "Delete Data", songs_path %> </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li> <%= link_to "Register", songs_path %> </li>
+        <li> <%= link_to "Register", new_user_registration_url %> </li>
         <% if current_user %>
-          <li> <%= link_to "Logout", songs_path, method: :delete %> </li>
+          <li> <%= link_to "Logout", destroy_user_session_url, method: :delete %> </li>
         <% else %>
-          <li> <%= link_to "Login", songs_path %> </li>
+          <li> <%= link_to "Login", new_user_session_url %> </li>
         <% end %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
