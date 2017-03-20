@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'generator/generate_data'
   devise_for :users
   resources :genres
   resources :songs

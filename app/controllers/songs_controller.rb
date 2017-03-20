@@ -15,8 +15,8 @@ class SongsController < ApplicationController
   # GET /songs/new
   def new
     @song = Song.new
-    @genres = Genre.find params[:genre_id]
-    @song.genre << @genres
+
+    @song.genre = Genre.find params(song_params)
 
   end
 
@@ -86,7 +86,7 @@ class SongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.require(:song).permit(:name, :image, :price, :user_id, :genre_id)
+      params.require(:song).permit(:name, :image, :price, :user_id, :genre, :genre_id)
     end
 
     def genre_params
