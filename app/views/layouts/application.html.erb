@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <%= render "shared/navigationbar" %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <p class="alert"><%= flash[:alert] %></p>
+  <div class="container">
     <%= yield %>
+  </div>
   </body>
 </html>
