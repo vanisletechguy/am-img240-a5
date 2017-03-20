@@ -23,6 +23,10 @@ gem 'pundit'
 gem 'faker', '~> 1.7', '>= 1.7.3'
 gem 'simple_form'
 gem 'bcrypt'
+gem 'kaminari'
+gem 'mini_magick'
+gem 'carrierwave', '~> 1.0'
+gem 'simple_form_fancy_uploads'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

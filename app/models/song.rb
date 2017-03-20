@@ -3,4 +3,5 @@ class Song < ApplicationRecord
   belongs_to :genre
   #attr_accessible :genre_id
   attr_accessor :genre_id
+  mount_uploader :image, SongpictureUploader
 end
